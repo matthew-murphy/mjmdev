@@ -52,54 +52,62 @@ import ChatPage from "views/examples/ChatPage.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
+  // <BrowserRouter>
+  //   <Switch>
+  //     <Route path="/index" render={(props) => <Index {...props} />} />
+  //     <Route
+  //       path="/presentation"
+  //       render={(props) => <Presentation {...props} />}
+  //     />
+  //     <Route path="/sections" render={(props) => <Sections {...props} />} />
+  //     <Route path="/about-us" render={(props) => <AboutUs {...props} />} />
+  //     <Route path="/blog-post" render={(props) => <BlogPost {...props} />} />
+  //     <Route path="/blog-posts" render={(props) => <BlogPosts {...props} />} />
+  //     <Route path="/contact-us" render={(props) => <ContactUs {...props} />} />
+  //     <Route
+  //       path="/landing-page"
+  //       render={(props) => <LandingPage {...props} />}
+  //     />
+  //     <Route path="/pricing" render={(props) => <Pricing {...props} />} />
+  //     <Route path="/ecommerce" render={(props) => <Ecommerce {...props} />} />
+  //     <Route
+  //       path="/product-page"
+  //       render={(props) => <ProductPage {...props} />}
+  //     />
+  //     <Route
+  //       path="/profile-page"
+  //       render={(props) => <ProfilePage {...props} />}
+  //     />
+  //     <Route path="/404-error" render={(props) => <Error404 {...props} />} />
+  //     <Route path="/500-error" render={(props) => <Error500 {...props} />} />
+  //     <Route
+  //       path="/account-settings"
+  //       render={(props) => <AccountSettings {...props} />}
+  //     />
+  //     <Route path="/login-page" render={(props) => <LoginPage {...props} />} />
+  //     <Route
+  //       path="/register-page"
+  //       render={(props) => <RegisterPage {...props} />}
+  //     />
+  //     <Route path="/reset-page" render={(props) => <ResetPage {...props} />} />
+  //     <Route
+  //       path="/invoice-page"
+  //       render={(props) => <InvoicePage {...props} />}
+  //     />
+  //     <Route
+  //       path="/checkout-page"
+  //       render={(props) => <CheckoutPage {...props} />}
+  //     />
+  //     <Route path="/chat-page" render={(props) => <ChatPage {...props} />} />
+  //     <Redirect from="/" to="/presentation" />
+  //   </Switch>
+  // </BrowserRouter>
   <BrowserRouter>
     <Switch>
-      <Route path="/index" render={(props) => <Index {...props} />} />
-      <Route
-        path="/presentation"
-        render={(props) => <Presentation {...props} />}
-      />
-      <Route path="/sections" render={(props) => <Sections {...props} />} />
-      <Route path="/about-us" render={(props) => <AboutUs {...props} />} />
-      <Route path="/blog-post" render={(props) => <BlogPost {...props} />} />
-      <Route path="/blog-posts" render={(props) => <BlogPosts {...props} />} />
-      <Route path="/contact-us" render={(props) => <ContactUs {...props} />} />
-      <Route
-        path="/landing-page"
-        render={(props) => <LandingPage {...props} />}
-      />
-      <Route path="/pricing" render={(props) => <Pricing {...props} />} />
-      <Route path="/ecommerce" render={(props) => <Ecommerce {...props} />} />
-      <Route
-        path="/product-page"
-        render={(props) => <ProductPage {...props} />}
-      />
-      <Route
-        path="/profile-page"
-        render={(props) => <ProfilePage {...props} />}
-      />
+      <Route path="/" render={(props) => <LandingPage {...props} />} />
       <Route path="/404-error" render={(props) => <Error404 {...props} />} />
       <Route path="/500-error" render={(props) => <Error500 {...props} />} />
-      <Route
-        path="/account-settings"
-        render={(props) => <AccountSettings {...props} />}
-      />
-      <Route path="/login-page" render={(props) => <LoginPage {...props} />} />
-      <Route
-        path="/register-page"
-        render={(props) => <RegisterPage {...props} />}
-      />
-      <Route path="/reset-page" render={(props) => <ResetPage {...props} />} />
-      <Route
-        path="/invoice-page"
-        render={(props) => <InvoicePage {...props} />}
-      />
-      <Route
-        path="/checkout-page"
-        render={(props) => <CheckoutPage {...props} />}
-      />
-      <Route path="/chat-page" render={(props) => <ChatPage {...props} />} />
       <Redirect from="/" to="/presentation" />
     </Switch>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

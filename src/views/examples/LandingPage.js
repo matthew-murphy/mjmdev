@@ -1,326 +1,286 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
-import { Line } from "react-chartjs-2";
+import ContactForm from "contact";
 
 // reactstrap components
 import {
-  Badge,
   Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  ListGroupItem,
-  ListGroup,
   Container,
   Row,
   Col,
 } from "reactstrap";
-// core components
-import { CardContent, Typography, CardActions } from '@mui/material';
+
 import ColorNavbar from "components/Navbars/ColorNavbar.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import PortfolioCard from "components/Cards/PorfolioCard";
-import ContactForm from "contact";
+import '../../assets/img/ibp.png';
 
-class LandingPage extends React.Component {
-  componentDidMount() {
+export default function LandingPage() {
+  const wrapper = useRef();
+
+  useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    this.refs.wrapper.scrollTop = 0;
+    wrapper.current.scrollTop = 0;
     document.body.classList.add("landing-page");
-    // document.body.classList.add("index-page");
-  }
-  componentWillUnmount() {
-    document.body.classList.remove("landing-page");
-    // document.body.classList.remove("index-page");
-  }
-  render() {
-    const openInNewTab = (url) => {
-      let win = window.open(url, "_blank");
-      win.focus();
+    return () => {
+      document.body.classList.remove("landing-page");
     };
-    return (
-      <>
-        <ColorNavbar />
-        <div className="wrapper" ref="wrapper">
-          <div className="page-header">
-            <div className="squares square1" />
-            <div className="squares square2" />
-            <div className="squares square3" />
-            <div className="squares square4" />
-            <div className="squares square5" />
-            <div className="squares square6" />
-            <div className="squares square7" />
-            <Container>
-              <Row className="row-grid justify-content-between align-items-center text-left">
-                <Col lg="6" md="8">
-                  <h1 className="text-white">
-                    Keep your business <br />
-                    <span className="text-white">modern</span>
-                  </h1>
-                  <p className="text-white mb-3">
-                    Having a web presence is essential to any successful
-                    business strategy.
-                    <br />
-                    Luckily a developer can provide that, contact me today for a
-                    free consultation.
-                  </p>
-                  <a
-                    className="btn-link"
-                    color="success"
-                    href="mailto:matthewmrph40@gmail.com"
-                    size="sm"
+  }, []);
+
+  const openInNewTab = (url) => {
+    let win = window.open(url, "_blank");
+    win.focus();
+  };
+
+  return (
+    <>
+      <ColorNavbar />
+      <div className="wrapper" ref={wrapper}>
+        <div className="page-header">
+          <div className="squares square1" />
+          <div className="squares square2" />
+          <div className="squares square3" />
+          <div className="squares square4" />
+          <div className="squares square5" />
+          <div className="squares square6" />
+          <div className="squares square7" />
+          <Container>
+            <Row className="row-grid justify-content-between align-items-center text-left">
+              <Col lg="6">
+                <h1 className="text-white">
+                  Keep your business <br />
+                  <span className="text-white">modern</span>
+                </h1>
+                <p className="text-white mb-3">
+                  Having a web presence is essential to any successful
+                  business strategy.
+                  <br />
+                  Luckily a developer can provide that, contact me today for a
+                  free consultation.
+                </p>
+                <a
+                  className="btn-link"
+                  color="success"
+                  href="#contact-link"
+                  size="sm"
+                >
+                  <p className="category text-success d-inline">Contact me</p>
+                  <i className="tim-icons icon-minimal-right" />
+                </a>
+                <Row style={{ paddingLeft: '15px', paddingTop: '15px', gap: '8px'}}>
+                <div className="btn-wrapper">
+                  <div className="button-container">
+                    <Button
+                      className="btn-icon btn-simple btn-round mr-1"
+                      color="neutral"
+                      onClick={(e) =>
+                        openInNewTab(
+                          "https://www.linkedin.com/in/matthew-murphy-8354a0a3"
+                        )
+                      }
+                    >
+                      <i className="fab fa-linkedin" />
+                    </Button>
+                  </div>
+                </div>
+              {/* add github icon */}
+              <div className="btn-wrapper">
+                <div className="button-container">
+                  <Button
+                    className="btn-icon btn-simple btn-round mr-1"
+                    color="neutral"
+                    onClick={(e) =>
+                      openInNewTab(
+                        "https://github.com/matthew-murphy"
+                      )
+                    }
                   >
-                    <p className="category text-success d-inline">Contact me</p>
-                    <i className="tim-icons icon-minimal-right" />
-                  </a>
-                  <div className="btn-wrapper mb-3">
-                  </div>
-                  <div className="btn-wrapper">
-                    <div className="button-container">
-                      <Button
-                        className="btn-icon btn-simple btn-round mr-1"
-                        color="neutral"
-                        // href="https://www.linkedin.com/in/matthew-murphy-8354a0a3"
-                        onClick={(e) =>
-                          openInNewTab(
-                            "https://www.linkedin.com/in/matthew-murphy-8354a0a3"
-                          )
-                        }
-                      >
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </div>
-                  </div>
-                </Col>
+                    <i className="fab fa-github" />
+                  </Button>
+                </div>
+              </div>
               </Row>
-            </Container>
-          </div>
-          <section className="section section-lg">
-            <section className="section">
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+        <section className="section">
+          <img
+            alt="..."
+            className="path"
+            src={require("assets/img/path4.png")}
+          />
+          <div className="features-6">
+          <Container>
+            <Row className="row-grid justify-content-between">
+              <Col lg="6">
+              <div>
+                  <h2 className="text-white">
+                    About <br />
+                    Me
+                  </h2>
+                  <p>
+                    I am a mobile and web developer. I create websites and apps to improve
+                    the way information is shared.
+                  </p>
+                  <br />
+                  <p>
+                    I have a passion for creating websites and apps that are easy to use and look great. I
+                    specialize in React and React Native, but I am always learning new
+                    technologies.
+                  </p>
+                  <br />
+                  <p></p>
+
+                </div>
+              </Col>
+              <Col lg="6">
               <img
                 alt="..."
-                className="path"
-                src={require("assets/img/path4.png")}
+                className="shape"
+                src={require("assets/img/path2.png")}
               />
-              <Container>
-                <Row className="row-grid justify-content-between">
-                  <Col className="mt-lg-5" md="5">
-                    <ContactForm />
-                  </Col>
-                  <Col md="6">
-                    <div className="pl-md-5" style={{ paddingTop: "30%" }}>
-                      <h1>
-                        About <br />
-                        Me
-                      </h1>
-                      <p>
-                        I am a developer. I create websites and apps to improve
-                        the way information is shared.
-                      </p>
-                      <br />
-                      <p>
-                        I'm from Charleston, SC and currently live in
-                        Indianapolis, IN. I enjoy podcasts and gaming in my
-                        spare time.
-                      </p>
-                      <br />
-                      <p></p>
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
-            </section>
-          </section>
-          <section className="section section-lg">
-            <img
-              alt="..."
-              className="path"
-              src={require("assets/img/path4.png")}
-            />
-            <img
-              alt="..."
-              className="path2"
-              src={require("assets/img/path5.png")}
-            />
-            <img
-              alt="..."
-              className="path3"
-              src={require("assets/img/path2.png")}
-            />
-            <Container>
-            <Row className="justify-content-center">
-                <Col lg="12">
-                  <h1 className="text-center">Projects</h1>
-                  <Row className="row-grid justify-content-center">
-                    {/* <Col lg="3">
-                      <PortfolioCard
-                        name="Package-in-Transit"
-                        src={require("../../assets/img/trackapp.png")}
-                        description="Track your UPS package's estimated delivery date: "
-                        techs={
-                          <section>
-                            <Badge className="ml-1" color="info" pill>
-                              React
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Node
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Express
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Javascript
-                            </Badge>
-                          </section>
-                        }
-                        site="https://package-in-transit.web.app/Dashboard"
-                        repo="https://github.com/matthew-murphy/track-app"
+              <figure className="ie-non-standard-hero-shape">
+                <svg
+                  className="injected-svg js-svg-injector"
+                  style={{ enableBackground: "new 10 12 878.9 907" }}
+                  viewBox="10 12 878.9 907"
+                  x="0px"
+                  y="0px"
+                  xmlSpace="preserve"
+                >
+                  <g>
+                    <defs>
+                      <path
+                        d="M329.15,403.44c30.22-62,26.51-223.94,94.06-268.46C479,98.23,560.16,257,700.68,151.61c71.25-53.44,85.54,81,160.38,172.6C1008.5,504.74,881.5,639.14,825.35,686.6c-62.54,52.85-246.14,24.42-386.7,79.28S214.07,834,202.07,702C190.39,573.57,288.69,486.43,329.15,403.44Z"
+                        id="firstShape"
                       />
-                    </Col> */}
-                    <Col lg="3">
-                      <PortfolioCard
-                        name="Trivia App"
-                        src={require("../../assets/img/tandem.png")}
-                        description="Trivia game: "
-                        techs={
-                          <section>
-                            <Badge className="ml-1" color="info" pill>
-                              HTML5
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              CSS3
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              JavaScript
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              React
-                            </Badge>
-                          </section>
-                        }
-                        site="https://tandemtrivia.web.app/Trivia"
-                        repo="https://github.com/matthew-murphy/tandem"
+                    </defs>
+                    <clipPath id="secondShape">
+                      <use
+                        style={{ overflow: "visible" }}
+                        xlinkHref="#firstShape"
                       />
-                    </Col>
-                    <Col lg="3">
-                      <Card variant="elevation">
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            IbpBlogger.com
-                          </Typography>
+                    </clipPath>
+                    <g clipPath="url(#secondShape)">
+                      <image
+                        height="900"
+                        id="imageShape1"
+                        style={{ overflow: "visible" }}
+                        transform="matrix(0.9488 0 0 0.9488 25 53.1187)"
+                        width="900"
+                        xlinkHref={require("assets/img/max.jpg")}
+                      />
+                    </g>
+                  </g>
+                  <g>
+                    <defs>
+                      <path
+                        d="M337.17,855.62c-7.81-35.46,42.38-43.95,63.66-52.44,24.39-9.74,135.86-48,192.58-52.52,64.22-5.13,190.21-26.84,160.46,35.34-19.76,41.3-51.47,64.52-87.63,62.33-46.36-2.81-101.56,4.39-150.8,44C448.53,946.08,450.93,865,412,868,372.28,871,340.79,872.08,337.17,855.62Z"
+                        id="thirdShape"
+                      />
+                    </defs>
+                    <clipPath id="fourthShape">
+                      <use
+                        style={{ overflow: "visible" }}
+                        xlinkHref="#thirdShape"
+                      />
+                    </clipPath>
+                    <g
+                      clipPath="url(#fourthShape)"
+                      transform="matrix(1 0 0 1 0 0)"
+                    >
+                      <image
+                        height="1000"
+                        id="imageShape2"
+                        style={{ overflow: "visible" }}
+                        transform="matrix(0.9488 0 0 0.9488 25 53.1187)"
+                        width="900"
+                        xlinkHref={require("assets/img/max.jpg")}
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </figure>
+            </Col>
+            </Row>
+          </Container>
+          </div>
+        </section>
 
-                          <img
-                            src={require("../../assets/img/ibp.png")}
-                            classes="icon-1"
-                            alt="html5-icon"
-                          />
-                          <Typography
-                            variant="body2"
-                            color="textSecondary"
-                            component="p"
-                          >
-                            A blog solution for a client that wants to market
-                            themselves as an integrated business planning
-                            professional. 
-                          </Typography>
-                          <section>
-                            <Badge className="ml-1" color="info" pill>
-                              WordPress
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              CSS3
-                            </Badge>
-                          </section>
-                        </CardContent>
-                        <CardActions>
-                          <Button
-                            onClick={(e) =>
-                              openInNewTab("https://ibpblogger.com")
-                            }
-                            variant="outlined"
-                            size="small"
-                            color="secondary"
-                          >
-                            Site
-                          </Button>
-                        </CardActions>
-                      </Card>
-                    </Col>
-                  </Row>
+        <section className="section">
+          <img
+            alt="..."
+            className="path"
+            src={require("assets/img/path4.png")}
+          />
+          <img
+            alt="..."
+            className="path2"
+            src={require("assets/img/path5.png")}
+          />
+          <img
+            alt="..."
+            className="path3"
+            src={require("assets/img/path2.png")}
+          />
+          <Container>
+            <Row className="row-grid justify-content-center" style={{gap: '30px'}}>
+              <Col lg="12">
+                <h2 className="text-white" style={{marginBottom: '0px'}}>My Work</h2>
+              </Col>
+              <Col md="12">
+                  <PortfolioCard
+                    name="Ibpblogger"
+                    title="ibpBlogger"
+                    description="IbpBlogger.com is a blog built with Wordpress for a local client."
+                    src={require("assets/img/ibp.png")}
+                    site="https://ibpblogger.com"
+                  />
+              </Col>
+              <Col md="12">
+              <PortfolioCard
+                    name="Natare"
+                    title="Natare"
+                    description="Natare.com is a custom made corporate website built with Wordpress and PHP."
+                    src={require("assets/img/natare.png")}
+                    site="https://natare.com"
+                  />
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        <section className="section section-lg pt-lg-0 mt--200">
+          <section className="section">
+            <Container id="contact-link">
+              <Row className="justify-content-center">
+                <Col lg="12">
                   <Row className="row-grid justify-content-center">
-                    {/* <Col lg="3">
-                      <PortfolioCard
-                        //name, src, description, techs, site, repo
-                        name="Leafy"
-                        src={require("../../assets/img/leafy1.png")}
-                        description="A social media site: "
-                        techs={
-                          <section>
-                            <Badge className="ml-1" color="info" pill>
-                              HTML5
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              CSS3
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              React
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Redux
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Heroku
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Axios
-                            </Badge>
-                          </section>
-                        }
-                        site="https://fair-theater-274920.web.app/"
-                        repo="https://gitlab.com/matthewmurphy/kwitter-clone/-/tree/master"
-                      />
-                    </Col> */}
-                    <Col lg="3">
-                      <PortfolioCard
-                        name="List App"
-                        src={require("../../assets/img/todoapp.png")}
-                        description="Create a list of text to keep track of tasks: "
-                        techs={
-                          <section>
-                            <Badge className="ml-1" color="info" pill>
-                              HTML5
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              CSS3
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              JavaScript
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              React
-                            </Badge>
-                            <Badge className="ml-1" color="info" pill>
-                              Redux
-                            </Badge>
-                          </section>
-                        }
-                        site="https://my-demo-59886.web.app/"
-                        repo="https://gitlab.com/matthewmurphy/todo-app-pt3/-/tree/master"
-                      />
+                    <Col lg="12">
+                      <h2 className="text-white">
+                        Let's talk about your next project
+                      </h2>
+                      <p className="lead text-white" style={{marginBottom: '30px'}}>
+                        I'm always looking for new opportunities to work on
+                        interesting projects. If you have a project you'd like to
+                        discuss, please get in touch.
+                      </p>
+                      <ContactForm />
                     </Col>
                   </Row>
                 </Col>
               </Row>
             </Container>
           </section>
-          <DemoFooter />
-        </div>
-      </>
-    );
-  }
+        </section>
+       
+      </div>
+      <div>
+        <DemoFooter />
+      </div>
+    </>
+  );
 }
-
-export default LandingPage;

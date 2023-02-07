@@ -4,6 +4,7 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/database'
 import 'firebase/compat/storage'
 import 'firebase/compat/app-check'
+import 'firebase/compat/analytics'
 import Axios from 'axios'
 
 // Initialize Firebase
@@ -14,17 +15,16 @@ let config = {
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 }
 
 const app = firebase.initializeApp(config)
 
 const db = firebase.firestore()
 
-// initializeAppCheck(app, {
-//   provider: new ReCaptchaV3Provider(process.env.REACT_APP_SITE_KEY),
-//   isTokenAutoRefreshEnabled: true,
-// });
-
+// add google analytics
+const analytics = firebase.analytics();
 
 const appCheck = firebase.appCheck();
 // Pass your reCAPTCHA v3 site key (public key) to activate(). Make sure this
@@ -36,4 +36,4 @@ appCheck.activate(
   // tokens as needed.
   false);
 
-export { Axios, db, app }
+export { Axios, db, app, analytics, appCheck }

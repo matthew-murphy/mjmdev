@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
-import ContactForm from "contact";
+import ContactForm from "components/contact";
+import { analytics } from "firebaseConfig";
 
 // reactstrap components
 import {
+  Badge,
   Button,
   Container,
   Row,
@@ -13,12 +15,18 @@ import {
 import ColorNavbar from "components/Navbars/ColorNavbar.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import PortfolioCard from "components/Cards/PorfolioCard";
-import '../../assets/img/ibp.png';
+import '../assets/img/ibp.png';
 
 export default function LandingPage() {
   const wrapper = useRef();
 
   useEffect(() => {
+    // log page view
+    analytics.logEvent("page_view", {
+      page_title: "Landing Page",
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+    });
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     wrapper.current.scrollTop = 0;
@@ -132,7 +140,27 @@ export default function LandingPage() {
                     technologies.
                   </p>
                   <br />
-                  <p></p>
+                  {/* <h2 className="text-white">
+                    My <br />
+                    Skills
+                  </h2> */}
+                  <p>
+                    <Badge color="info" className="ml-1">React</Badge>
+                    <Badge color="info" className="ml-1">React Native</Badge>
+                    <Badge color="info" className="ml-1">EXPO ClI</Badge>
+                    <Badge color="info" className="ml-1">Git</Badge>
+                    <Badge color="info" className="ml-1">JavaScript</Badge>
+                    <Badge color="info" className="ml-1">HTML</Badge>
+                    <Badge color="info" className="ml-1">CSS</Badge>
+                    <Badge color="info" className="ml-1">SASS</Badge>
+                    <Badge color="info" className="ml-1">PHP</Badge>
+                    <Badge color="info" className="ml-1">Laravel</Badge>
+                    <Badge color="info" className="ml-1">NodeJs</Badge>
+                    <Badge color="info" className="ml-1">Firebase</Badge>
+                    <Badge color="info" className="ml-1">GCP</Badge>
+                    <Badge color="info" className="ml-1">MySql</Badge>
+                    <Badge color="info" className="ml-1">Wordpress</Badge>
+                  </p>
 
                 </div>
               </Col>

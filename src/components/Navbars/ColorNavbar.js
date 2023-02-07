@@ -51,7 +51,7 @@ class ColorNavbar extends React.Component {
         <Navbar className={"fixed-top " + this.state.navbarColor} expand="lg">
           <Container>
             <div className="navbar-translate">
-              <NavbarBrand to="/index" tag={Link} id="tooltip6619950104">
+              <NavbarBrand to="/" tag={Link} id="tooltip6619950104">
                 <span>Web Developer</span> | Consulting
               </NavbarBrand>
             </div>

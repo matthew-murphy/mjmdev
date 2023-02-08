@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 // react plugin used to create charts
 import ContactForm from "components/Contact";
 import { analytics } from "firebaseConfig";

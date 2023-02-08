@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 // react plugin used to create charts
-import ContactForm from "components/contact";
+import ContactForm from "components/Contact";
 import { analytics } from "firebaseConfig";
 
 // reactstrap components

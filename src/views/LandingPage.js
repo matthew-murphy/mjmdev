@@ -260,22 +260,31 @@ export default function LandingPage() {
                 <h2 className="text-white" style={{marginBottom: '0px'}}>My Work</h2>
               </Col>
               <Col md="12">
-                  <PortfolioCard
-                    name="Ibpblogger"
-                    title="ibpBlogger"
-                    description="IbpBlogger.com is a blog built with Wordpress for a local client."
-                    src={require("assets/img/ibp.png")}
-                    site="https://ibpblogger.com"
-                  />
+                <PortfolioCard
+                  name="Delve Planning Architects"
+                  title="Delve Planning Architects"
+                  description="Delveplanningarchitects.com is a custom made business consultancy website built with React and Firebase."
+                  src={require("assets/img/DelveScreenshot.png")}
+                  site="https://delveplanningarchitects.com"
+                />
               </Col>
               <Col md="12">
-              <PortfolioCard
-                    name="Natare"
-                    title="Natare"
-                    description="Natare.com is a custom made corporate website built with Wordpress and PHP."
-                    src={require("assets/img/natare.png")}
-                    site="https://natare.com"
-                  />
+                <PortfolioCard
+                  name="Ibpblogger"
+                  title="ibpBlogger"
+                  description="IbpBlogger.com is a blog built with Wordpress for a local client."
+                  src={require("assets/img/ibp.png")}
+                  site="https://ibpblogger.com"
+                />
+              </Col>
+              <Col md="12">
+                <PortfolioCard
+                  name="Natare"
+                  title="Natare"
+                  description="Natare.com is a custom made corporate website built with Wordpress and PHP."
+                  src={require("assets/img/natare.png")}
+                  site="https://natare.com"
+                />
               </Col>
             </Row>
           </Container>
